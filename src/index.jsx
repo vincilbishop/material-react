@@ -1,5 +1,7 @@
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
+import DataService from './services/DataService'
+
 import App from './App'
 
 const root = document.getElementById('root')
@@ -14,4 +16,5 @@ if (module.hot) {
   module.hot.accept('./App', load)
 }
 
+DataService.init()
 load()
