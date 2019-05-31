@@ -7,6 +7,7 @@ import 'firebase/firestore'
 
 class DataService {
   static db
+  static auth
 
   static init () {
     const firebaseConfig = {
@@ -23,6 +24,7 @@ class DataService {
     firebase.initializeApp(firebaseConfig)
 
     this.db = firebase.firestore()
+    this.auth = firebase.auth()
   }
 
   static read () {
@@ -35,9 +37,7 @@ class DataService {
 
   static write () {
     this.db.collection('users').add({
-      first: 'Ada',
-      last: 'Lovelace',
-      born: 1815
+      first: 'Ada', last: 'Lovelace', born: 1815
     })
       .then(function (docRef) {
         console.log('Document written with ID: ', docRef.id)
@@ -45,6 +45,17 @@ class DataService {
       .catch(function (error) {
         console.error('Error adding document: ', error)
       })
+  }
+
+  static watchAuthentication () {
+    this.auth.onAuthStateChanged((user) => {
+      console.log('user:', user)
+      if (user) {
+        console.log('Logged in!')
+      } else {
+        console.log('Logged out!')
+      }
+    })
   }
 }
 
