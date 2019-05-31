@@ -8,7 +8,7 @@
     "start": "neutrino start --watch",
     "lint": "neutrino lint",
     "test": "neutrino test",
-    "pretty": "prettier \"./src/shared/**/*.{js, jsx}\" --check"
+    "pretty": "prettier \"./src/**/*.{js, jsx}\" --check"
   },
   "dependencies": {
     "@material-ui/core": "v4.0.0-beta.2",
