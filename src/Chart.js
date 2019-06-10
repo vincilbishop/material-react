@@ -1,10 +1,10 @@
-import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
-import Title from './Title';
+import React from 'react'
+import { LineChart, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts'
+import Title from './Title'
 
 // Generate Sales Data
-function createData(time, amount) {
-  return { time, amount };
+function createData (time, amount) {
+  return { time, amount }
 }
 
 const data = [
@@ -16,10 +16,10 @@ const data = [
   createData('15:00', 2000),
   createData('18:00', 2400),
   createData('21:00', 2400),
-  createData('24:00', undefined),
-];
+  createData('24:00', undefined)
+]
 
-export default function Chart() {
+export default function Chart () {
   return (
     <React.Fragment>
       <Title>Today</Title>
@@ -30,18 +30,18 @@ export default function Chart() {
             top: 16,
             right: 16,
             bottom: 0,
-            left: 24,
+            left: 24
           }}
         >
-          <XAxis dataKey="time" />
+          <XAxis dataKey='time' />
           <YAxis>
-            <Label angle={270} position="left" style={{ textAnchor: 'middle' }}>
+            <Label angle={270} position='left' style={{ textAnchor: 'middle' }}>
               Sales ($)
             </Label>
           </YAxis>
-          <Line type="monotone" dataKey="amount" stroke="#556CD6" dot={false} />
+          <Line type='monotone' dataKey='amount' stroke='#556CD6' dot={false} />
         </LineChart>
       </ResponsiveContainer>
     </React.Fragment>
-  );
+  )
 }
